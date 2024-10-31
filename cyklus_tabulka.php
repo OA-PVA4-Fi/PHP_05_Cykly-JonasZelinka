@@ -38,6 +38,34 @@ $city = array(
 	"Poland"=>"Warsaw"
 );
 
-//reseni
 
+ksort($city);
+
+$rowCount = 0;
+$cellCount = 1;
+
+echo "<table border='1'>";
+echo "<tr>"; 
+
+foreach ($city as $country => $capital) {
+    echo "<td>{$cellCount}. {$country} - {$capital}</td>"; 
+    $cellCount++;
+    $rowCount++;
+
+   
+    if ($rowCount % 3 == 0) {
+        echo "</tr><tr>"; 
+    }
+}
+
+if ($rowCount % 3 != 0) {
+    while ($rowCount % 3 != 0) {
+        echo "<td></td>"; 
+        $rowCount++;
+    }
+    echo "</tr>"; 
+}
+
+
+echo "</table>";
 ?>
